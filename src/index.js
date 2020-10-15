@@ -3,17 +3,31 @@ import { render } from 'react-dom';
 
 import './index.css';
 
-const image = 'https://m.media-amazon.com/images/I/811opppMPQL._AC_UY218_.jpg';
-const title = 'Caste';
-const subTitle = 'the Origins of Our Discontents';
-const author = 'Isabel Wilkerson';
+const books = [
+  {
+    id: 1,
+    image: 'https://m.media-amazon.com/images/I/811opppMPQL._AC_UY218_.jpg',
+    title: 'Caste',
+    subTitle: 'the Origins of Our Discontents',
+    author: 'Isabel Wilkerson',
+  },
+  {
+    id: 2,
+    image: 'https://m.media-amazon.com/images/I/91rsCHC3qJL._AC_UY218_.jpg',
+    title: 'Deacon King Kong',
+    subTitle: '',
+    author: 'James McBride',
+  },
+];
 
 const BookList = () => {
   return (
     <section className='book-list-container'>
       <h1>Oprah's Book Club</h1>
       <div className='book-list'>
-        <Book title={title} />
+        {books.map((book) => (
+          <Book key={book.id} {...book} />
+        ))}
       </div>
     </section>
   );
@@ -21,10 +35,11 @@ const BookList = () => {
 
 const Book = (props) => {
   console.log(props);
+  const { image, title, subTitle, author } = props;
   return (
     <article className='book'>
-      <img src={image} alt='' />
-      <h2 className='title'>{props.title}</h2>
+      <img className='image' src={image} alt='' />
+      <h2 className='title'>{title}</h2>
       <h3>{subTitle}</h3>
       <p className='author'>{author}</p>
     </article>
