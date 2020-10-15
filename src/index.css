@@ -18,9 +18,22 @@ body {
 
 .title {
   color: darkslateblue;
+  margin-top: 5px;
+}
+
+.author {
+  color: orange;
+  letter-spacing: 3px;
 }
 
 .book-list {
   display: flex;
   flex-wrap: wrap;
+}
+
+.book {
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
 }

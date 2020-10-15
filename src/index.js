@@ -3,57 +3,31 @@ import { render } from 'react-dom';
 
 import './index.css';
 
+const image = 'https://m.media-amazon.com/images/I/811opppMPQL._AC_UY218_.jpg';
+const title = 'Caste';
+const subTitle = 'the Origins of Our Discontents';
+const author = 'Isabel Wilkerson';
+
 const BookList = () => {
   return (
     <section className='book-list-container'>
       <h1>Oprah's Book Club</h1>
       <div className='book-list'>
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
-        <Book />
+        <Book title={title} />
       </div>
     </section>
   );
 };
 
-const Book = () => {
+const Book = (props) => {
+  console.log(props);
   return (
-    <article>
-      <Image />
-      <Title />
-      <Author />
+    <article className='book'>
+      <img src={image} alt='' />
+      <h2 className='title'>{props.title}</h2>
+      <h3>{subTitle}</h3>
+      <p className='author'>{author}</p>
     </article>
-  );
-};
-
-const Image = () => {
-  return (
-    <>
-      <img
-        src='https://m.media-amazon.com/images/I/811opppMPQL._AC_UY218_.jpg'
-        alt=''
-      />
-    </>
-  );
-};
-
-const Title = () => {
-  return (
-    <>
-      <h2 className='title'>Caste</h2>
-      <h3>the Origins of Our Discontents</h3>
-    </>
-  );
-};
-
-const Author = () => {
-  return (
-    <>
-      <p>Isabel Wilkerson</p>
-    </>
   );
 };
 
